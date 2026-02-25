@@ -1,0 +1,15 @@
+{
+  "name": "GlassTab",
+  "description": "Glassmorphic New Tab with local image/video wallpapers and real blur.",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": ["storage"],
+  "host_permissions": [],
+  "action": {
+    "default_title": "GlassTab"
+  },
+  "icons": {}
+}
