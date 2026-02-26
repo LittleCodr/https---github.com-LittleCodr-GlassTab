@@ -1,104 +1,166 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>New Tab</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23a8edea'/%3E%3Cstop offset='100%25' stop-color='%23fed6e3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23090d14'/%3E%3Cpolygon points='32,10 54,26 54,42 32,58 10,42 10,26' fill='none' stroke='url(%23g)' stroke-width='2.5' stroke-linejoin='round'/%3E%3Cpolygon points='32,10 54,26 32,32' fill='url(%23g)' opacity='0.25'/%3E%3Cpolygon points='10,26 32,32 32,58' fill='url(%23g)' opacity='0.15'/%3E%3Cline x1='10' y1='26' x2='54' y2='26' stroke='url(%23g)' stroke-width='1.5' opacity='0.5'/%3E%3Cline x1='32' y1='10' x2='32' y2='32' stroke='url(%23g)' stroke-width='1.5' opacity='0.4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/newtab.css">
 </head>
+
 <body>
-  <div class="wallpaper-layer" aria-hidden="true">
-    <video class="wallpaper-video" muted loop playsinline></video>
-    <img class="wallpaper-image" alt="" />
-    <div class="wallpaper-overlay"></div>
+
+  <!-- Donate button top-right -->
+  <a class="donate-btn" href="https://payments.cashfree.com/links?code=ma0i14in83sg_AAAAAAARXHo" target="_blank"
+    rel="noreferrer" aria-label="Donate">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+      stroke-linejoin="round">
+      <path
+        d="M12 2C9.24 2 7 3.79 7 6c0 1.86 1.38 3.43 3.33 3.87L9 14h6l-1.33-4.13C15.62 9.43 17 7.86 17 6c0-2.21-2.24-4-5-4z" />
+      <path d="M9 14l-2 6h10l-2-6" />
+      <line x1="12" y1="2" x2="12" y2="6" />
+      <line x1="9.5" y1="5" x2="14.5" y2="5" />
+    </svg>
+    <span>Support us</span>
+  </a>
+
+  <!-- Wallpaper -->
+  <div class="wp-layer" aria-hidden="true">
+    <video class="wp-video" muted loop playsinline></video>
+    <img class="wp-img" alt="">
+    <div class="wp-overlay"></div>
   </div>
 
-  <main class="viewport">
-    <div class="stack">
-      <div class="time" id="clock">20:41</div>
-      <div class="date" id="date">WEDNESDAY, FEB 25</div>
+  <!-- Main centered content -->
+  <main class="center">
 
-      <form class="search-bar glass" id="search-form" action="https://www.google.com/search" method="GET">
-        <span class="search-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true">
-            <circle cx="11" cy="11" r="6" stroke-width="2" fill="none" />
-            <line x1="15.5" y1="15.5" x2="21" y2="21" stroke-width="2" />
-          </svg>
-        </span>
-        <input type="search" name="q" id="search-input" placeholder="Search the web" aria-label="Search" autocomplete="off" />
-        <span class="engine" aria-hidden="true">
-          <svg viewBox="0 0 32 32" role="presentation" aria-hidden="true">
-            <path d="M16 3c3.6 0 6.4 1.2 8.4 3.2C26.4 8.2 27.5 11 27.5 14c0 2.9-1.1 5.6-3 7.6-2.2 2.2-5.4 3.6-8.5 3.6-5.8 0-10.5-4.2-10.5-9.5C5.5 7.3 10.3 3 16 3Zm-.1 4.3c-2.8 0-4.9 2-4.9 4.7s2 4.7 4.9 4.7c1.3 0 2.3-.3 3.1-.9l-1.3-1.3c-.5.3-1.1.4-1.7.4-1.6 0-2.8-1.1-2.8-2.9 0-1.7 1.2-2.9 2.8-2.9 1.4 0 2.4.8 2.7 2H21c-.3-2.3-2.3-4-5.1-4Zm7 9.6 2.2 2.1-2 2L21 18.8Z" fill="currentColor"/>
-          </svg>
-        </span>
-      </form>
+    <!-- 1. Time -->
+    <div class="time" id="clock">00:00</div>
 
-      <div class="quick-links" id="links-grid" aria-label="Quick links">
-        <button class="quick-pill glass" data-href="https://developer.chrome.com" title="Chrome Dev">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
-        </button>
-        <button class="quick-pill glass" data-href="https://github.com" title="GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.2c-5 0-9 3.9-9 8.8 0 3.9 2.6 7.1 6.2 8.2.5.1.6-.2.6-.4v-1.6c-2.5.5-3-1.1-3-1.1-.4-.9-1-1.1-1-1.1-.8-.5.1-.5.1-.5.9.1 1.4.9 1.4.9.8 1.3 2.1.9 2.6.7.1-.6.3-.9.5-1.1-2-.2-4.1-1-4.1-4.4 0-1 .4-1.9 1-2.5-.1-.2-.4-1.1.1-2.3 0 0 .8-.2 2.6.9.7-.2 1.4-.3 2.1-.3.7 0 1.4.1 2.1.3 1.8-1.1 2.6-.9 2.6-.9.5 1.2.2 2.1.1 2.3.7.6 1 1.5 1 2.5 0 3.4-2.1 4.1-4.1 4.4.3.3.6.8.6 1.6v2.3c0 .2.1.5.6.4 3.6-1.2 6.2-4.4 6.2-8.3 0-4.8-4-8.7-9-8.7Z" fill="currentColor"/></svg>
-        </button>
-        <button class="quick-pill glass" data-href="https://dribbble.com" title="Dribbble">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 5.5c2.7 2.1 5.5 3.3 8.8 3.7M5.5 9.8c3.4-.4 6.4.2 9.3 2.1M10.4 5c1.6 2 2.9 4.4 3.9 7.5M9.2 13c1.8-.1 3.7.2 5.8 1.1" stroke="currentColor" stroke-width="1.4" fill="none"/></svg>
-        </button>
-        <button class="quick-pill glass" data-href="https://news.ycombinator.com" title="Hacker News">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 7.5 12 13l3-5.5M12 13v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </button>
-        <button class="quick-pill glass" data-href="https://open.spotify.com" title="Spotify">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 14c2.3-.4 4.6-.2 6.9.6M8.3 11.4c2.5-.4 4.8-.1 7.3.9M9.2 8.9c2.3-.3 4.3 0 6.6 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </button>
-        <button class="quick-pill glass" data-href="https://calendar.google.com" title="Calendar">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="7" width="12" height="10" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 5v3M15 5v3M6 10h12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </button>
-        <button class="quick-pill glass" data-href="https://drive.google.com" title="Drive">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 5h5l4 7-2.6 4.5H6.5L4 12Z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
-        </button>
-        <button class="quick-pill glass" data-href="https://mail.google.com" title="Mail">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="10" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 9.5 12 14l7-4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-        </button>
-      </div>
+    <!-- 2. Date -->
+    <div class="date" id="date">—</div>
+
+    <!-- 3. Weather (optional, hidden until set) -->
+    <div class="weather-line" id="weather-line" hidden>
+      <span id="w-temp"></span>
+      <span class="weather-dot">·</span>
+      <span id="w-cond"></span>
+      <span class="weather-dot">·</span>
+      <span id="w-loc"></span>
     </div>
 
-    <button class="float-btn glass" id="settings-btn" aria-label="Open settings">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Zm7.4 2.5a5.4 5.4 0 0 1-.1 1.1l1.6 1.3-1.3 2.2-1.9-.6a5.5 5.5 0 0 1-1.9 1.1l-.3 1.9h-2.6l-.3-1.9a5.5 5.5 0 0 1-1.9-1.1l-1.9.6-1.3-2.2 1.6-1.3a5.4 5.4 0 0 1 0-2.2l-1.6-1.3 1.3-2.2 1.9.6a5.5 5.5 0 0 1 1.9-1.1l.3-1.9h2.6l.3 1.9a5.5 5.5 0 0 1 1.9 1.1l1.9-.6 1.3 2.2-1.6 1.3c.1.4.1.7.1 1.1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    </button>
+    <!-- 4. Search bar -->
+    <form class="search-wrap" id="search-form" role="search">
+      <input type="search" id="search-input" placeholder="Search anything…" autocomplete="off" spellcheck="false"
+        aria-label="Search">
+    </form>
 
-    <aside class="settings-drawer glass" id="settings-drawer" aria-hidden="true">
-      <div class="drawer-row">
-        <label for="blur">Blur</label>
-        <input type="range" id="blur" min="0" max="30" step="1" />
-        <span class="value" id="blur-value"></span>
-      </div>
-      <div class="drawer-row">
-        <label for="opacity">Opacity</label>
-        <input type="range" id="opacity" min="0.3" max="1" step="0.02" />
-        <span class="value" id="opacity-value"></span>
-      </div>
-      <div class="drawer-row">
-        <label for="saturation">Saturation</label>
-        <input type="range" id="saturation" min="0.6" max="1.6" step="0.05" />
-        <span class="value" id="saturation-value"></span>
-      </div>
-      <div class="drawer-row inline">
-        <label for="motion">Motion</label>
-        <label class="switch">
-          <input type="checkbox" id="motion" />
-          <span class="slider"></span>
-        </label>
-      </div>
-      <div class="drawer-row file-row">
-        <label for="wallpaper-file">Wallpaper</label>
-        <input type="file" id="wallpaper-file" accept="image/png,image/jpeg,image/webp,video/mp4,video/webm" />
-      </div>
-      <div class="drawer-row actions">
-        <button class="pill ghost" id="reset-btn">Reset</button>
-      </div>
-      <div class="status" id="status">Ready</div>
-    </aside>
+    <!-- 5. Shortcut row -->
+    <nav class="shortcuts" id="shortcut-row" aria-label="Shortcuts"></nav>
+
   </main>
+
+  <!-- 6. Settings button -->
+  <button class="settings-fab" id="settings-btn" aria-label="Settings">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+      stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3" />
+      <path
+        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+    </svg>
+  </button>
+
+  <!-- Settings Drawer (hidden by default) -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <aside class="drawer-panel">
+      <div class="drawer-head">
+        <span class="drawer-title">Settings</span>
+        <button class="drawer-close" id="close-drawer" aria-label="Close">✕</button>
+      </div>
+
+      <div class="drawer-body">
+
+        <!-- Search engine -->
+        <div class="ds-group">
+          <div class="ds-label">Search engine</div>
+          <select class="ds-select" id="engine-select">
+            <option value="https://www.google.com/search?q=">Google</option>
+            <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+            <option value="https://www.bing.com/search?q=">Bing</option>
+            <option value="https://search.brave.com/search?q=">Brave</option>
+          </select>
+        </div>
+
+        <!-- Weather -->
+        <div class="ds-group">
+          <div class="ds-label">Weather</div>
+          <div class="ds-row"><input class="ds-input" id="w-city" placeholder="City name" type="text"></div>
+          <div class="ds-row"><input class="ds-input" id="w-temp-in" placeholder="Temperature" type="text">
+            <select class="ds-select ds-select-sm" id="w-unit">
+              <option value="C">°C</option>
+              <option value="F">°F</option>
+            </select>
+          </div>
+          <div class="ds-row"><input class="ds-input" id="w-cond-in" placeholder="Condition (e.g. Sunny)" type="text">
+          </div>
+          <button class="ds-btn" id="save-weather">Save weather</button>
+        </div>
+
+        <!-- Shortcuts -->
+        <div class="ds-group">
+          <div class="ds-label">Shortcuts</div>
+          <div class="shortcut-edit-list" id="shortcut-edit-list"></div>
+          <button class="ds-btn" id="add-shortcut">+ Add shortcut</button>
+        </div>
+
+        <!-- World Clocks -->
+        <div class="ds-group">
+          <div class="ds-label">World clocks</div>
+          <div class="clock-edit-list" id="clock-edit-list"></div>
+          <button class="ds-btn" id="add-clock">+ Add city</button>
+        </div>
+
+        <!-- Tasks -->
+        <div class="ds-group">
+          <div class="ds-label">Tasks</div>
+          <div class="task-edit-list" id="task-list"></div>
+          <button class="ds-btn" id="add-task">+ Add task</button>
+        </div>
+
+        <!-- Appearance -->
+        <div class="ds-group">
+          <div class="ds-label">Appearance</div>
+          <div class="ds-range-row"><label>Blur</label><input type="range" id="blur" min="10" max="40" step="1"><span
+              id="blur-val"></span></div>
+          <div class="ds-range-row"><label>Brightness</label><input type="range" id="brightness" min="0.5" max="1.5"
+              step="0.05"><span id="brightness-val"></span></div>
+          <div class="ds-range-row"><label>Vignette</label><input type="range" id="vignette" min="0" max="0.8"
+              step="0.02"><span id="vignette-val"></span></div>
+          <div class="ds-range-row file-row"><label>Accent</label><input type="color" id="accent-color" value="#ffffff">
+          </div>
+        </div>
+
+        <!-- Wallpaper -->
+        <div class="ds-group">
+          <div class="ds-label">Wallpaper</div>
+          <div class="ds-range-row file-row"><label>Upload</label><input type="file" id="wallpaper-file"
+              accept="image/*,video/mp4,video/webm"></div>
+          <div class="ds-range-row"><label>Video speed</label><input type="range" id="video-speed" min="0.25" max="2"
+              step="0.05"><span id="video-speed-val"></span></div>
+          <button class="ds-btn ds-btn-sub" id="reset-btn">Reset defaults</button>
+        </div>
+
+      </div>
+    </aside>
+  </div>
 
   <script type="module" src="scripts/newtab.js"></script>
 </body>
+
 </html>
